@@ -20,6 +20,14 @@ Cara menggunakannya:
 7. Untuk OAuth2: user_id dan user_secret sengaja dirahasiakan
 7. Aplikasi siap digunakan 
 
+```php
+/**
+Untuk local user account:
+username : Admin
+password : Admin123
+ * */
+```
+
 Implementasi Oauth2 pada repo ini ada 2, yaitu:
 
 ## Grant Type: Authorization Code
