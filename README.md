@@ -14,7 +14,7 @@ Cara menggunakannya:
 4. Rename `config/db-example.php` menjadi `config/db.php`, dan sesuaikan,
 5. Rename `config/auth_client_collection-example.php` menjadi `config/auth_client_collection.php`, dan sesuaikan,
 6. Running migration,
-    1. `php yii migrate rbac`
+    1. `php yii migrate-rbac`
     2. `php yii migrate-mdm`
     3. `php yii migrate`
 7. Running server dengan mengetikkan perintah `php yii serve localhost:8081`,
