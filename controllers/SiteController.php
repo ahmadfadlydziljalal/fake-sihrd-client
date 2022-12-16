@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\components\MyOAuth2AuthClient;
+use app\components\SihrdAuthClient;
 use app\models\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
@@ -90,7 +90,7 @@ class SiteController extends Controller
 
       if ($model->load(Yii::$app->request->post())) {
 
-         /* @var $client MyOAuth2AuthClient */
+         /* @var $client SihrdAuthClient */
          $client = Yii::$app->authClientCollection->getClient('sihrd');
 
          try {

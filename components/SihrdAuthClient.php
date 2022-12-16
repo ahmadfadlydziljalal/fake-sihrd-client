@@ -3,19 +3,19 @@
 namespace app\components;
 use yii\authclient\OAuth2;
 
-class MyOAuth2AuthClient extends OAuth2
+class SihrdAuthClient extends OAuth2
 {
 
    public ?string $apiUserInfo = null;
 
    protected function defaultName(): string
    {
-      return 'my-oauth2';
+      return 'sihrd';
    }
 
    protected function defaultTitle(): string
    {
-      return 'My Oauth2';
+      return 'SIHRD';
    }
 
    protected function initUserAttributes(): array

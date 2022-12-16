@@ -15,23 +15,7 @@ $config = [
       '@npm' => '@vendor/npm-asset',
    ],
    'components' => [
-      'authClientCollection' => [
-         'class' => 'yii\authclient\Collection',
-         'clients' => [
-            'sihrd' => [
-               'class' => '\app\components\MyOAuth2AuthClient',
-               'clientId' => '',
-               'clientSecret' => '',
-               'authUrl' => 'https://hrd.rayakreasi.xyz/authorize',
-               'tokenUrl' => 'https://hrd.rayakreasi.xyz/oauth2/token',
-               'apiBaseUrl' =>  'https://hrd.rayakreasi.xyz/oauth2/v1',
-               'apiUserInfo' => 'https://hrd.rayakreasi.xyz/oauth2/user-info',
-               'viewOptions' => [
-                  'icon' => 'https://cdn-icons-png.flaticon.com/512/2376/2376399.png'
-               ]
-            ],
-         ],
-      ],
+      'authClientCollection' =>  require __DIR__ . '/auth_client_collection.php',
       'authManager' => [
          'class' => \yii\rbac\DbManager::class,
       ],

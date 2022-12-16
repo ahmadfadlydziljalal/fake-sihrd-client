@@ -16,9 +16,9 @@ Cara menggunakannya:
     1. `php yii migrate rbac`
     2. `php yii migrate-mdm`
     3. `php yii migrate`
-6. Running server dengan mengetikkan perintah `php yii serve localhost:8081`
-7. Untuk OAuth2: user_id dan user_secret sengaja dirahasiakan
-7. Aplikasi siap digunakan 
+6. Running server dengan mengetikkan perintah `php yii serve localhost:8081`,
+7. Untuk OAuth2: client_id dan client_secret sengaja dirahasiakan,
+8. Aplikasi siap digunakan 
 
 ```php
 /**
@@ -28,6 +28,9 @@ password : Admin123
  * */
 ```
 
+```
+Untuk memasukkan client_id dan client_secret, file konfigurasinya ada di `config/auth_client_collection.php`
+```
 Implementasi Oauth2 pada repo ini ada 2, yaitu:
 
 ## Grant Type: Authorization Code
@@ -65,6 +68,7 @@ class MyOAuth2AuthClient extends OAuth2
 ```
 
 `config/web.php`
+
 ```php
 'components' => [
   'authClientCollection' => [
@@ -76,7 +80,7 @@ class MyOAuth2AuthClient extends OAuth2
            'clientSecret' => 'google_client_secret',
         ],
         'my-oauth2' => [
-           'class' => '\app\components\MyOAuth2AuthClient',
+           'class' => '\app\components\SihrdAuthClient',
            'clientId' => 'testclient',
            'clientSecret' => 'testpass',
            'authUrl' => 'http://localhost:8080/authorize',
