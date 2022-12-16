@@ -6,7 +6,7 @@
     <br>
 </p>
 
-Ini adalah contoh Fake Auth client yang meng-implementasi Yii2 OAuth2 server dari repository [Yii2 OAuth2 Server](https://github.com/ahmadfadlydziljalal/yii2-oauth2-server) buatan Saya.
+Ini adalah contoh <b>Fake Auth client untuk SIHRD<b>  yang meng-implementasi Yii2 OAuth2 server dari repository [Yii2 OAuth2 Server](https://github.com/ahmadfadlydziljalal/yii2-oauth2-server) buatan Saya.
 Cara menggunakannya:
 1. Clone Project,
 2. Running composer update,
@@ -17,7 +17,7 @@ Cara menggunakannya:
     2. `php yii migrate-mdm`
     3. `php yii migrate`
 6. Running server dengan mengetikkan perintah `php yii serve localhost:8081`
-7. user_id dan user_password sengaja dirahasiakan
+7. Untuk OAuth2: user_id dan user_secret sengaja dirahasiakan
 7. Aplikasi siap digunakan 
 
 Implementasi Oauth2 pada repo ini ada 2, yaitu:
