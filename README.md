@@ -51,12 +51,12 @@ class MyOAuth2AuthClient extends OAuth2
 
    protected function defaultName(): string
    {
-      return 'my-oauth2';
+      return 'sihrd';
    }
 
    protected function defaultTitle(): string
    {
-      return 'My Oauth2';
+      return 'SIHRD';
    }
 
    protected function initUserAttributes(): array
@@ -79,15 +79,14 @@ class MyOAuth2AuthClient extends OAuth2
            'clientId' => 'google_client_id',
            'clientSecret' => 'google_client_secret',
         ],
-        'my-oauth2' => [
+        'sihrd' => [
            'class' => '\app\components\SihrdAuthClient',
-           'clientId' => 'testclient',
-           'clientSecret' => 'testpass',
-           'authUrl' => 'http://localhost:8080/authorize',
-           'tokenUrl' => 'http://localhost:8080/oauth2/token',
-           'returnUrl' => 'http://localhost:8081/authorize?authclient=my-oauth2',
-           'apiBaseUrl' =>  'http://localhost:8080/oauth2/v1',
-           'apiUserInfo' => 'http://localhost:8080/oauth2/user-info',
+           'clientId' => CLIENT_ID,
+           'clientSecret' => CLIENT_SECRET,
+           'authUrl' => 'https://hrd.rayakreasi.xyz/authorize',
+           'tokenUrl' => 'https://hrd.rayakreasi.xyz/oauth2/token',
+           'apiBaseUrl' =>  'https://hrd.rayakreasi.xyz/oauth2/v1',
+           'apiUserInfo' => 'https://hrd.rayakreasi.xyz/oauth2/user-info',
            'viewOptions' => [
               'icon' => 'https://cdn-icons-png.flaticon.com/512/2376/2376399.png'
            ]
@@ -132,6 +131,36 @@ class AuthHandler
 {
 
     private ClientInterface $client;
+    
+    /**
+    * @throws Exception
+    */
+    public static function setUserDataInCookies($attributes){
+      $cookies = Yii::$app->response->cookies;
+      $cookies->add(new Cookie([
+         'name' => 'id_karyawan',
+         'value' => ArrayHelper::getValue($attributes, 'karyawan.id'),
+      ]));
+
+      $cookies->add(new Cookie([
+         'name' => 'nama_karyawan',
+         'value' => ArrayHelper::getValue($attributes, 'karyawan.nama'),
+      ]));
+
+      $cookies->add(new Cookie([
+         'name' => 'photo_karyawan',
+         'value' => ArrayHelper::getValue($attributes, 'karyawan.photo'),
+      ]));
+
+   }
+
+   public static function removeUserDataInCookies(){
+      $cookies = Yii::$app->response->cookies;
+      $cookies->remove('id_karyawan');
+      $cookies->remove('nama_karyawan');
+      $cookies->remove('photo_karyawan');
+   }    
+    
     public function __construct(ClientInterface $client)
     {
         $this->client = $client;
